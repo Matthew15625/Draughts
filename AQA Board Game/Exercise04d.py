@@ -23,14 +23,15 @@ def CreateBlankBoardArray(Board):
   print ("This stub will be used to create the empty structure for the board")
 
 def LoadPieces(FileHandle, PlayersPieces):
-  #Loops the same number of times as the number of pieces + 1   
-  for piece in range(NUMBER_OF_PIECES+1):
-    # The first iteration will just load placeholder values
-    if piece == 0:
-      FileHandle.readline()
-      FileHandle.readline()
-      FileHandle.readline()
-      continue
+  
+  # The first 3 lines hold placeholder values
+  FileHandle.readline()
+  FileHandle.readline()
+  FileHandle.readline()
+  
+  #Loops the same number of times as the number of pieces
+  for piece in range(NUMBER_OF_PIECES):
+
     #Loop 3 times - once for each attribute of the piece
     for attribute in range(3):
       value = int(FileHandle.readline())
